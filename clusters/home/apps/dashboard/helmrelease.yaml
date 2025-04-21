@@ -18,9 +18,5 @@ spec:
         name: kubernetes-dashboard
         namespace: flux-system
   values:
-    controller:
-      service:
-        type: LoadBalancer
-        annotations:
-          kube-vip.io/loadbalancerIPs: "10.0.0.55"
-        loadBalancerIP: "10.0.0.55"
+    service:
+      type: LoadBalancer
