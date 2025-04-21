@@ -6,7 +6,7 @@ metadata:
 spec:
   targetNamespace: kubernetes-dashboard
   storageNamespace: flux-system
-  interval: 10m0s 
+  interval: 10m0s
   install:
     createNamespace: true
   chart:
@@ -18,8 +18,9 @@ spec:
         name: kubernetes-dashboard
         namespace: flux-system
   values:
-    service:
-      type: LoadBalancer
-      annotations:
-        kube-vip.io/loadbalancerIPs: "10.0.0.55"
-      loadBalancerIP: "10.0.0.55"
+    controller:
+      service:
+        type: LoadBalancer
+        annotations:
+          kube-vip.io/loadbalancerIPs: "10.0.0.55"
+        loadBalancerIP: "10.0.0.55"
