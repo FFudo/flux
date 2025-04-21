@@ -28,6 +28,6 @@ spec:
         name: kubernetes-dashboard
         namespace: flux-system
   values:
-    service:
-      externalPort: 443
-      type: LoadBalancer
+    kong:
+      service:
+        type: LoadBalancer
