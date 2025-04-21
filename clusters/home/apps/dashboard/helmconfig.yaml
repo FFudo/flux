@@ -28,7 +28,6 @@ spec:
         name: kubernetes-dashboard
         namespace: flux-system
   values:
-    service:
-      kong:
-        proxy:
-          type: LoadBalancer
+    kong:
+      proxy:
+        type: LoadBalancer
