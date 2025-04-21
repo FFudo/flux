@@ -31,3 +31,6 @@ spec:
     kong:
       proxy:
         type: LoadBalancer
+        loadBalancerIP: 10.0.0.55
+        annotations:
+          kube-vip.io/loadbalancerIPs: "10.0.0.55"
