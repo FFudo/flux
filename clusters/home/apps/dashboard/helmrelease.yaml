@@ -1,0 +1,24 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kubernetes-dashboard
+  namespace: kubernetes-dashboard
+spec:
+  releaseName: kubernetes-dashboard
+  interval: 5m0s
+  install:
+    createNamespace: true
+  chart:
+    spec:
+      chart: kubernetes-dashboard
+      version: "7.12.0"
+      sourceRef:
+        kind: HelmRepository
+        name: kubernetes-dashboard
+        namespace: flux-system
+  values:
+    service:
+      type: LoadBalancer
+      annotations:
+        kube-vip.io/loadbalancerIPs: "10.0.0.55"
+      loadBalancerIP: "10.0.0.55"
