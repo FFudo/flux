@@ -4,8 +4,8 @@ metadata:
   name: kubernetes-dashboard
   namespace: flux-system
 spec:
-  releaseName: kubernetes-dashboard
-  interval: 5m0s
+  targetNamespace: kubernetes-dashboard
+  storageNamespace: flux-system
   install:
     createNamespace: true
   chart:
