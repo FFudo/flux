@@ -6,6 +6,7 @@ metadata:
 spec:
   targetNamespace: kubernetes-dashboard
   storageNamespace: flux-system
+  interval: 10m0s 
   install:
     createNamespace: true
   chart:
