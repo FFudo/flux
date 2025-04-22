@@ -37,5 +37,15 @@ spec:
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: websecure
           traefik.ingress.kubernetes.io/router.tls: "true"
-        tls:
-          secretName: kubernetes-dashboard-certificate-secret
+          traefik.ingress.kubernetes.io/service.serversscheme: https
+          traefik.ingress.kubernetes.io/service.serverstransport: dashboard-transport@kubernetescrd
+      
+      # Use the dashboard's built-in certificate generation
+      certManager:
+        enabled: false
+      
+      # Set this to false and let the dashboard handle its own certs
+      tls:
+        enabled: true
+        secretName: null
+        
