@@ -30,7 +30,15 @@ spec:
   values:
     kong:
       proxy:
-        type: LoadBalancer
-        loadBalancerIP: 10.0.0.55
-        annotations:
-          kube-vip.io/loadbalancerIPs: "10.0.0.55"
+        enabled: false
+    ingress:
+      enabled: true
+      ingressClassName: traefik
+      annotations:
+        cert-manager.io/issuer: "cloudflare-clusterissuer"
+      hosts:
+        - dashboard.home.ffudo.me
+      tls:
+        - secretName: kubernetes-dashboard-certificate-secret
+          hosts:
+            - dashboard.home.ffudo.me
