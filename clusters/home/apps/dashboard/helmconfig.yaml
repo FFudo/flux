@@ -28,25 +28,10 @@ spec:
         name: kubernetes-dashboard
         namespace: flux-system
   values:
-    kong:
-      proxy:
-        http:
-          enabled: true
-        type: ClusterIP
-
     app:
-      mode: dashboard
       ingress:
         enabled: true
-        useDefaultAnnotations: false        # remove NGINX defaults
-        ingressClassName: traefik           # ensure Traefik picks it up
-        annotations:
-          kubernetes.io/ingress.class: traefik
-          traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
         hosts:
           - dashboard.home.ffudo.me
-        path: /
-        pathType: ImplementationSpecific
         tls:
-          enabled: true
-          secretName: kubernetes-dashboard-certificate-secret
+          secretName: "kubernetes-dashboard-certificate-secret"
