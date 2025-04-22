@@ -16,7 +16,7 @@ metadata:
 spec:
   targetNamespace: traefik
   storageNamespace: flux-system
-  interval: 10m0s
+  interval: 5m0s
   install:
     createNamespace: true
   chart:
