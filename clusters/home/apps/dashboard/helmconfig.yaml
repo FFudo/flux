@@ -34,5 +34,8 @@ spec:
         hosts:
           - dashboard.home.ffudo.me
         ingressClassName: traefik-traefik
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: websecure
+          traefik.ingress.kubernetes.io/router.tls: "true"
         tls:
           secretName: kubernetes-dashboard-certificate-secret
