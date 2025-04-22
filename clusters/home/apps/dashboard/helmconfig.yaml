@@ -28,6 +28,10 @@ spec:
         name: kubernetes-dashboard
         namespace: flux-system
   values:
+    # Disable Kong proxy as it's causing complications with Traefik
+    kong:
+      enabled: false
+      
     app:
       ingress:
         enabled: true
@@ -38,14 +42,11 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: websecure
           traefik.ingress.kubernetes.io/router.tls: "true"
           traefik.ingress.kubernetes.io/service.serversscheme: https
-          traefik.ingress.kubernetes.io/service.serverstransport: dashboard-transport@kubernetescrd
+          traefik.ingress.kubernetes.io/service.serverstransport.insecureskipverify: "true"
+        tls:
+          secretName: kubernetes-dashboard-certificate-secret
       
-      # Use the dashboard's built-in certificate generation
-      certManager:
-        enabled: false
-      
-      # Set this to false and let the dashboard handle its own certs
-      tls:
-        enabled: true
-        secretName: null
+      # Configure dashboard's own TLS settings
+      containerPort: 8443
+      servicePort: 443
         
