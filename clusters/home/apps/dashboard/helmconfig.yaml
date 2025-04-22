@@ -33,12 +33,7 @@ spec:
         enabled: false
     ingress:
       enabled: true
-      ingressClassName: traefik
-      annotations:
-        cert-manager.io/issuer: "cloudflare-clusterissuer"
       hosts:
         - dashboard.home.ffudo.me
       tls:
         - secretName: kubernetes-dashboard-certificate-secret
-          hosts:
-            - dashboard.home.ffudo.me
