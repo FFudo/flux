@@ -1,0 +1,13 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kubernetes-dashboard-certificate 
+  namespace: kubernetes-dashboard 
+spec:
+  secretName: kubernetes-dashboard-certificate-secret
+  issuerRef:
+    name: cloudlfare-clusterissuer
+    kind: ClusterIssuer
+  dnsNames:
+    - dashboard.home.ffudo.me
