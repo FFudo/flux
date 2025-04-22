@@ -24,11 +24,11 @@ spec:
     crds: CreateReplace
   chart:
     spec:
-      chart: name
+      chart: cert-manager
       version: "1.17.0" # right version of helm chart
       sourceRef:
         kind: HelmRepository
-        name: name
+        name: cert-manager
         namespace: flux-system
   values:
     crds:
