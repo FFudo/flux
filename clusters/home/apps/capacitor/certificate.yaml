@@ -1,0 +1,13 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: capacitor-certificate 
+  namespace:  flux-system
+spec:
+  secretName: capacitor-certificate-secret 
+  issuerRef:
+    name: cloudlfare-clusterissuer
+    kind: ClusterIssuer
+  dnsNames:
+    - capacitor.home.ffudo.me
