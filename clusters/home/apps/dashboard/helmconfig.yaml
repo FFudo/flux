@@ -33,5 +33,6 @@ spec:
         enabled: true
         hosts:
           - dashboard.home.ffudo.me
+        ingressClassName: traefik-traefik
         tls:
-          secretName: "kubernetes-dashboard-certificate-secret"
+          secretName: kubernetes-dashboard-certificate-secret
